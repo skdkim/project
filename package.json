@@ -2,7 +2,9 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://skdkim.github.io/project",
   "devDependencies": {
+    "gh-pages": "^2.0.0",
     "react-scripts": "1.1.5"
   },
   "dependencies": {
@@ -10,6 +12,8 @@
     "react-dom": "^16.5.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
