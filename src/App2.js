@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
+
 
 class App2 extends Component {
   render() {
@@ -8,11 +10,8 @@ class App2 extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome Page 2</h1>
+          <h1 className="App-title">Website 1 Clone</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
