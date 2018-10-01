@@ -24,6 +24,15 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <div class="sidebar">
+            <Link class="link" style={{display: this.state.homeDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
+            <br/>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page2'}>Page2</Link>
+            <br/>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page3'}>Page3</Link>
+          </div>
+          <Route path="/page2" component={App2}/>
+          <Route path="/page3" component={App3}/>
           <Route exact="true" path="/" render={()=>(
               <div className="App">
                 <header className="App-header">
@@ -37,15 +46,6 @@ class App extends Component {
               </div>
             )}/>
 
-            <div >
-              <Link class="link" style={{display: this.state.homeDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
-              <br/>
-              <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page2'}>Page2</Link>
-              <br/>
-              <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page3'}>Page3</Link>
-              <Route path="/page2" component={App2}/>
-              <Route path="/page3" component={App3}/>
-            </div>
         </div>
       </Router>
     );
