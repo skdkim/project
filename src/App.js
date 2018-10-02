@@ -4,11 +4,12 @@ import logo from './logo.svg';
 import './App.css';
 import App2 from './App2';
 import App3 from './App3';
+import hamburger from './assets/images/hamburger.png';
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {linkDisp: "",
+    this.state = {linkDisp: "none",
                   homeDisp: "none"};
   }
 
@@ -17,15 +18,26 @@ class App extends Component {
   }
 
   clickHome(){
-    this.setState({linkDisp: "", homeDisp: "none"})
+    this.setState({linkDisp: "", homeDisp: "none"});
+  }
+
+  hamburgerMouseEnter(){
+    this.setState({linkDisp: "block"});
+  }
+
+  hamburgerMouseLeave(){
+    this.setState({linkDisp: "none"});
   }
 
   render() {
     return (
       <Router>
         <div>
-          <div class="sidebar">
-            <Link class="link" style={{display: this.state.homeDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
+          <div class="sidebar" onMouseLeave={this.hamburgerMouseLeave.bind(this)}>
+            <div>
+              <img class="js" src={hamburger} onMouseEnter={this.hamburgerMouseEnter.bind(this)} alt=""></img>
+            </div>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
             <br/>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page2'}>Page2</Link>
             <br/>
