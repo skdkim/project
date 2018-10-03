@@ -4,13 +4,15 @@ import logo from './logo.svg';
 import './App.css';
 import App2 from './App2';
 import App3 from './App3';
-import hamburger from './assets/images/hamburger.png';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {linkDisp: "none",
-                  homeDisp: "none"};
+                  homeDisp: "none",
+                  topBarStyle: {},
+                  midBarStyle: {},
+                  botBarStyle: {}};
   }
 
   clickLink(){
@@ -24,9 +26,15 @@ class App extends Component {
   toggleMenu(e){
     e.preventDefault();
     if(this.state.linkDisp === "none"){
-      this.setState({linkDisp: "flex"});
+      this.setState({linkDisp: "flex",
+                    topBarStyle: {transform: "rotate(-225deg)", top: ".5em"},
+                    midBarStyle: {opacity: "0", transition: "200ms"},
+                    botBarStyle: {transform: "rotate(225deg)", top: ".5em"}});
     } else {
-      this.setState({linkDisp:"none"});
+      this.setState({linkDisp:"none",
+                    topBarStyle: {},
+                    midBarStyle: {},
+                    botBarStyle: {}});
     }
   }
 
@@ -34,8 +42,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div>
-            <img class="menu" src={hamburger} onClick={this.toggleMenu.bind(this)} alt=""></img>
+          <div class="menu" style={this.state.menuStyle} onClick={this.toggleMenu.bind(this)}>
+            <div id="topBar" style={this.state.topBarStyle}></div>
+            <div id="middleBar" style={this.state.midBarStyle}></div>
+            <div id="bottomBar" style={this.state.botBarStyle}></div>
           </div>
           <div class="sidebar" style={{display: this.state.linkDisp}}>
             <div class="placeholder"></div>
