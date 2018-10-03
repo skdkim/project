@@ -1,3 +1,7 @@
+div {
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -8,10 +12,10 @@
 }
 
 .App-header {
-  background-color: #222;
+  /* background-color: #222; */
   height: 150px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-title {
@@ -27,8 +31,27 @@
   border-radius: 1px solid black;
   position: absolute;
   display: flex;
+  /* display: none; */
   flex-direction: column;
   padding: 2em;
+}
+
+.placeholder {
+  height: 3em;
+}
+
+.link {
+  border: 1px solid black;
+}
+
+.menu {
+  position: absolute;
+  z-index: 2;
+  margin: 15px;
+}
+
+.sidebar:hover {
+
 }
 
 @keyframes App-logo-spin {

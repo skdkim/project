@@ -21,22 +21,24 @@ class App extends Component {
     this.setState({linkDisp: "", homeDisp: "none"});
   }
 
-  hamburgerMouseEnter(){
-    this.setState({linkDisp: "block"});
-  }
-
-  hamburgerMouseLeave(){
-    this.setState({linkDisp: "none"});
+  toggleMenu(e){
+    e.preventDefault();
+    if(this.state.linkDisp === "none"){
+      this.setState({linkDisp: "flex"});
+    } else {
+      this.setState({linkDisp:"none"});
+    }
   }
 
   render() {
     return (
       <Router>
         <div>
-          <div class="sidebar" onMouseLeave={this.hamburgerMouseLeave.bind(this)}>
-            <div>
-              <img class="js" src={hamburger} onMouseEnter={this.hamburgerMouseEnter.bind(this)} alt=""></img>
-            </div>
+          <div>
+            <img class="menu" src={hamburger} onClick={this.toggleMenu.bind(this)} alt=""></img>
+          </div>
+          <div class="sidebar" style={{display: this.state.linkDisp}}>
+            <div class="placeholder"></div>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
             <br/>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page2'}>Page2</Link>
