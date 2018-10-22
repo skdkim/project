@@ -1,1 +1,1 @@
-[Live Link](https://skdkim.github.io/)
+[Live Link](https://skdkim.github.io/project)
