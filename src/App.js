@@ -49,15 +49,15 @@ class App extends Component {
           </div>
           <div class="sidebar" style={{display: this.state.linkDisp}}>
             <div class="placeholder"></div>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/'}>Home</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/project'}>Home</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page2'}>Page2</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/page2'}>Page2</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/page3'}>Page3</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/page3'}>Page3</Link>
           </div>
-          <Route path="/page2" component={App2}/>
-          <Route path="/page3" component={App3}/>
-          <Route exact="true" path="/" render={()=>(
+          <Route path="/project/page2" component={App2}/>
+          <Route path="/project/page3" component={App3}/>
+          <Route exact="true" path="/project" render={()=>(
               <div className="App">
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo" />
