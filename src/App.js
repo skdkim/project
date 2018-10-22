@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import App2 from './App2';
+import API1 from './API1';
 import App3 from './App3';
 
 class App extends Component {
@@ -51,11 +51,11 @@ class App extends Component {
             <div class="placeholder"></div>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/project'}>Home</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/page2'}>Page2</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/api1'}>API1</Link>
             <br/>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/page3'}>Page3</Link>
           </div>
-          <Route path="/project/page2" component={App2}/>
+          <Route path="/project/api1" component={API1}/>
           <Route path="/project/page3" component={App3}/>
           <Route exact="true" path="/project" render={()=>(
               <div className="App">
