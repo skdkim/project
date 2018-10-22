@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   clickLink(){
-    this.setState({linkDisp: "none", homeDisp: ""});
+    this.setState({linkDisp: "", homeDisp: ""});
   }
 
   clickHome(){

@@ -50,7 +50,7 @@ class API1 extends Component {
         <div>
           <ul>
             {images.map( image => (
-                <img key={image.id} src={image.url} width="500px"/>
+                <img key={image.id} src={image.url} width="500px" height = "300px"/>
             ))}
           </ul>
         </div>
