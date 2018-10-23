@@ -11,12 +11,14 @@ class API1 extends Component {
 
     this.state = {
       isLoaded : false,
+      parkChosen : false,
       images : [],
       queries: [],
       park: ""
     }
 
     this.inputSubmit = this.inputSubmit.bind(this);
+    this.choosePark = this.choosePark.bind(this);
   }
 
   // componentDidMount() {
@@ -32,6 +34,21 @@ class API1 extends Component {
   //       })
   //     })
   // }
+
+  choosePark(pCode){
+    return function(){
+        let url = 'https://api.nps.gov/api/v1/parks?fields=images&parkCode=' + pCode + '&api_key=' + npsKey;
+        fetch(url)
+          .then(res => res.json())
+          .then(json => {
+            let jsonImages = json.data[0].images;
+            this.setState({
+              isLoaded: true,
+              images: jsonImages,
+            })
+          })
+    }.bind(this)
+  }
 
   inputSubmit(event){
     // this.setState({park: event.target.value})
@@ -69,9 +86,9 @@ class API1 extends Component {
         </header>
         <div>
           <input type="text" onChange={this.inputSubmit}></input>
-          <ul>
+          <ul >
             {queries.map( query =>
-              <li key = {query.id} width="100%" height="100%">
+              <li key = {query.id} onClick={this.choosePark(query.parkCode)}>
                 {query.fullName}
               </li>
             )}
