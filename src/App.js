@@ -15,6 +15,9 @@ class App extends Component {
                   botBarStyle: {}
                 };
     this.mouseLeave = this.mouseLeave.bind(this);
+    this.clickLink = this.clickLink.bind(this);
+    this.clickHome = this.clickHome.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
 
@@ -49,18 +52,18 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div class="menu" style={this.state.menuStyle} onClick={this.toggleMenu.bind(this)}>
+          <div class="menu" style={this.state.menuStyle} onClick={this.toggleMenu}>
             <div id="topBar" style={this.state.topBarStyle}></div>
             <div id="middleBar" style={this.state.midBarStyle}></div>
             <div id="bottomBar" style={this.state.botBarStyle}></div>
           </div>
           <div class="sidebar" onMouseLeave={this.mouseLeave} style={{display: this.state.linkDisp}}>
             <div class="placeholder"></div>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/project'}>Home</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome} to={'/project'}>Home</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/npsapi1'}>NPS API</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink} to={'/project/npsapi1'}>NPS API</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink.bind(this)} to={'/project/page3'}>Page3</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink} to={'/project/page3'}>Page3</Link>
           </div>
           <Route path="/project/npsapi1" component={NPSApi}/>
           <Route path="/project/page3" component={App3}/>
@@ -71,8 +74,12 @@ class App extends Component {
                   <h1 className="App-title">David's Random Projects</h1>
                 </header>
                 <p className="App-intro">
-                  All of my random stuff.
-                  <br/> Click on a link.
+                  Welcome to my random project. <br/>
+                  This might take over as my new portfolio but it hasn't just yet. <br/>
+                <br/>
+                <a href="http://davidkim.tech">Portfolio</a><br/>
+                  <br/>
+                  Click on a link below or in the side menu.
                 </p>
               </div>
             )}/>

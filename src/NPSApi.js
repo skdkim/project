@@ -71,7 +71,7 @@ class NPSApi extends Component {
       body = (
         <div>
           <br/>
-          Loading...
+          Search a national park name to see photos.
         </div>
       );
     } else {
