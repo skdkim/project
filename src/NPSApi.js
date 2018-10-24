@@ -21,20 +21,6 @@ class NPSApi extends Component {
     this.choosePark = this.choosePark.bind(this);
   }
 
-  // componentDidMount() {
-  //   let url = 'https://api.nps.gov/api/v1/parks?fields=images&parkCode=yose&api_key=' + npsKey;
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       let jsonImages = json.data[0].images;
-  //       console.log(jsonImages);
-  //       this.setState({
-  //         isLoaded: true,
-  //         images: jsonImages,
-  //       })
-  //     })
-  // }
-
   choosePark(pCode){
     return function(){
         let url = 'https://api.nps.gov/api/v1/parks?fields=images&parkCode=' + pCode + '&api_key=' + npsKey;
@@ -51,7 +37,6 @@ class NPSApi extends Component {
   }
 
   inputSubmit(event){
-    // this.setState({park: event.target.value})
     let url = 'https://api.nps.gov/api/v1/parks?limit=4&q='+ event.target.value + '&api_key=' + npsKey;
     fetch(url)
       .then(res => res.json())
@@ -79,9 +64,9 @@ class NPSApi extends Component {
         <div>
           <ul >
             {queries.map( query =>
-              <li key = {query.id} onClick={this.choosePark(query.parkCode)}>
+              <button key = {query.id} onClick={this.choosePark(query.parkCode)}>
                 {query.fullName}
-              </li>
+              </button>
             )}
           </ul>
           <ul>
@@ -97,7 +82,7 @@ class NPSApi extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">NPS API DEMO</h1>
+          <h1 className="App-title">National Parks Service API DEMO</h1>
         </header>
         <input type="text" onChange={this.inputSubmit} placeholder="National Park"></input>
         {body}

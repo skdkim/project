@@ -22,7 +22,6 @@ class Home extends Component {
         <br/>
         <a href="http://davidkim.tech">Official Portfolio for now</a><br/>
           <br/>
-          <a href="project/page3">NPS</a>
           Click on a link below or in the side menu.
         </p>
       </div>
