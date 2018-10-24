@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import NPSApi from './NPSApi';
 import App3 from './App3';
+import Home from './Home';
 
 class App extends Component {
   constructor(props){
@@ -59,30 +60,16 @@ class App extends Component {
           </div>
           <div class="sidebar" onMouseLeave={this.mouseLeave} style={{display: this.state.linkDisp}}>
             <div class="placeholder"></div>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome} to={'/project'}>Home</Link>
+            <Link class="link" style={{display: this.state.linkDisp}}  onClick={this.clickHome}to={'/project'}>Home</Link>
             <br/>
-            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink} to={'/project/npsapi1'}>NPS API</Link>
+            <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink} to={'/project/npsapi'}>NPS API</Link>
             <br/>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickLink} to={'/project/page3'}>Page3</Link>
           </div>
-          <Route path="/project/npsapi1" component={NPSApi}/>
+          <Route path="/project/npsapi" component={NPSApi}/>
           <Route path="/project/page3" component={App3}/>
-          <Route exact="true" path="/project" render={()=>(
-              <div className="App">
-                <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <h1 className="App-title">David's Random Projects</h1>
-                </header>
-                <p className="App-intro">
-                  Welcome to my random project. <br/>
-                  This might take over as my new portfolio but it hasn't just yet. <br/>
-                <br/>
-                <a href="http://davidkim.tech">Portfolio</a><br/>
-                  <br/>
-                  Click on a link below or in the side menu.
-                </p>
-              </div>
-            )}/>
+          <Route path="/project/home" component={Home}/>
+          <Route exact path="/project" component={Home}/>
 
         </div>
       </Router>
