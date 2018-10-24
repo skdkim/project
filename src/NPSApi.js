@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 const npsKey = './assets/keys/npsAPIKey.npsKey';
 
 
-class API1 extends Component {
+class NPSApi extends Component {
   constructor(props){
     super(props);
 
@@ -65,27 +65,18 @@ class API1 extends Component {
 
   render() {
     let {isLoaded, images, queries, park} = this.state;
+    let body;
 
     if(!isLoaded){
-      return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">API DEMO 1</h1>
-          </header>
-          <input type="text" onChange={this.inputSubmit}></input>
-          <div>Loading...</div>
+      body = (
+        <div>
+          <br/>
+          Loading...
         </div>
       );
     } else {
-      return (
-        <div className="App">
-        <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">API DEMO 1</h1>
-        </header>
+      body = (
         <div>
-          <input type="text" onChange={this.inputSubmit}></input>
           <ul >
             {queries.map( query =>
               <li key = {query.id} onClick={this.choosePark(query.parkCode)}>
@@ -99,10 +90,20 @@ class API1 extends Component {
             ))}
           </ul>
         </div>
-        </div>
       );
     }
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">NPS API DEMO</h1>
+        </header>
+        <input type="text" onChange={this.inputSubmit} placeholder="National Park"></input>
+        {body}
+      </div>
+    );
   }
 }
 
-export default API1;
+export default NPSApi;
