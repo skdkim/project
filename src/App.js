@@ -12,8 +12,11 @@ class App extends Component {
                   homeDisp: "none",
                   topBarStyle: {},
                   midBarStyle: {},
-                  botBarStyle: {}};
+                  botBarStyle: {}
+                };
+    this.mouseLeave = this.mouseLeave.bind(this);
   }
+
 
   clickLink(){
     this.setState({linkDisp: "", homeDisp: ""});
@@ -38,6 +41,10 @@ class App extends Component {
     }
   }
 
+  mouseLeave(e){
+    this.toggleMenu(e)
+    // this.setState()
+  }
   render() {
     return (
       <Router>
@@ -47,7 +54,7 @@ class App extends Component {
             <div id="middleBar" style={this.state.midBarStyle}></div>
             <div id="bottomBar" style={this.state.botBarStyle}></div>
           </div>
-          <div class="sidebar" style={{display: this.state.linkDisp}}>
+          <div class="sidebar" onMouseLeave={this.mouseLeave} style={{display: this.state.linkDisp}}>
             <div class="placeholder"></div>
             <Link class="link" style={{display: this.state.linkDisp}} onClick={this.clickHome.bind(this)} to={'/project'}>Home</Link>
             <br/>
