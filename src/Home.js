@@ -24,6 +24,15 @@ class Home extends Component {
           <br/>
           Click on a link below or in the side menu.
         </p>
+        <div class="projects-container">
+          <h3>Projects</h3>
+          <div class="project">
+            <Link class="link" to={'/project/npsapi'}>NPS API DEMO</Link>
+          </div>
+          <div class="project">
+            <a href="http://www.hikergram.com" target="_blank">HikerGram</a>
+          </div>
+        </div>
       </div>
     );
   }
