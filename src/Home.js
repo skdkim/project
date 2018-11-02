@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import './Home.css';
 import './App.css';
 import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
@@ -24,8 +25,8 @@ class Home extends Component {
           <br/>
           Click on a link below or in the side menu.
         </p>
+        <h3>Projects</h3>
         <div class="projects-container">
-          <h3>Projects</h3>
           <div class="project">
             <Link class="link" to={'/project/npsapi'}>NPS API DEMO</Link>
           </div>
