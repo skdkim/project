@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import david from './assets/images/david.gif';
 import './Home.css';
 import './App.css';
 import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
@@ -12,11 +13,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">David's Random Project</h1>
-        </header>
+      <div className="App" id="home">
+        <img id="davidGif" src={david} alt="logo" />
+        <h1 className="App-title">David's Random Project</h1>
         <p className="App-intro">
           Welcome to my random project. <br/>
           This might take over as my new portfolio but it hasn't just yet. <br/>

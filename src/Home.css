@@ -4,6 +4,20 @@
   justify-content: center;
 }
 
+#home {
+  background-color: #fbfafa;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#davidGif {
+  height: 250px;
+  width: 250px;
+  align-self: center;
+}
+
+
 .project {
   width: 300px;
 }
