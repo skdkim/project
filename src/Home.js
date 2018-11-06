@@ -15,10 +15,11 @@ class Home extends Component {
     return (
       <div className="App" id="home">
         <img id="davidGif" src={david} alt="logo" />
-        <h1 className="App-title">David's Random Project</h1>
+        <h1 className="App-title">David's Future Portfolio</h1>
         <p className="App-intro">
-          Welcome to my random project. <br/>
-          This might take over as my new portfolio but it hasn't just yet. <br/>
+          Welcome to my future portfolio project. <br/>
+          I'm hand rolling this as a fun react project. <br/>
+          This probably won't look good on mobile for a while. <br/>
         <br/>
         <a href="http://davidkim.tech">Official Portfolio for now</a><br/>
           <br/>
