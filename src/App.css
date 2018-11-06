@@ -40,10 +40,6 @@ div {
   height: 3em;
 }
 
-.link {
-  border: 1px solid black;
-}
-
 .menu {
   position: absolute;
   top: 1em;
