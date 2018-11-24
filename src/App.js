@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import NPSApi from './NPSApi';
-import App3 from './App3';
 import Home from './Home';
+import Board from '../src/Board/Board';
+import { FaPencil } from 'react-icons/fa';
+
 
 class App extends Component {
   constructor(props){
@@ -54,11 +56,11 @@ class App extends Component {
             <br/>
             <Link class="link" to={'/project/npsapi'}>NPS API</Link>
             <br/>
-            <Link class="link" to={'/project/page3'}>Page3</Link>
+            <Link class="link" to={'/project/board'}>Board</Link>
           </div>
 
           <Route path="/project/npsapi" component={NPSApi}/>
-          <Route path="/project/page3" component={App3}/>
+          <Route path="/project/board" component={Board}/>
           <Route path="/project/home" component={Home}/>
           <Route exact path="/project" component={Home}/>
         </div>

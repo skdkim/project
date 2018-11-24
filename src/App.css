@@ -33,6 +33,7 @@ div {
   display: flex;
   flex-direction: column;
   padding: 2em;
+  z-index: 999;
 }
 
 .placeholder {
