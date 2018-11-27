@@ -12,8 +12,10 @@ class Note extends Component {
   constructor(props){
     super(props);
     this.state = {
-      editing: false
+      editing: false,
+      content: "Hello World"
     }
+
     this.edit = this.edit.bind(this);
     this.remove = this.remove.bind(this);
     this.save = this.save.bind(this);
@@ -22,7 +24,7 @@ class Note extends Component {
   }
 
   edit(){
-    this.setState({editing: true});
+    this.setState({editing: true, content: this.newMsg});
   }
 
   remove(){
@@ -30,15 +32,14 @@ class Note extends Component {
   }
 
   save(){
-    alert('saved');
+    this.setState({editing: false, content: this.newMsg.value});
   }
 
   renderForm(){
     return (
       <div className="note">
         <form>
-          <textarea>
-          </textarea>
+          <textarea type="text" ref={content => this.newMsg = content} />
           <button id="save" onClick={this.save}><FaSave/></button>
         </form>
       </div>
@@ -48,7 +49,7 @@ class Note extends Component {
   renderDisplay(){
     return (
       <div className="note">
-        <p>Hello World</p>
+        <p>{this.state.content}</p>
         <span>
           <button id="edit" onClick={this.edit}><FaPencilAlt /> </button>
           <button id="remove" onClick={this.remove}><FaTrash /></button>
