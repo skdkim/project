@@ -8,17 +8,30 @@ class Board extends Component {
     super(props);
     this.state = {
       notes: [
-        {id: 3, note: "gym"},
-        {id: 4, note: "visit bank"},
-        {id: 5, note: "study React"}
+        {id: 0, note: "gym"},
+        {id: 1, note: "visit bank"},
+        {id: 2, note: "study React"}
       ]
     }
     this.eachNote = this.eachNote.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  eachNote(note, i){
+  update(newText, i){
+    this.setState(prevState => ({
+      notes: prevState.notes.map(
+        note => (note.id !== i ? note : {...note, note: newText})
+      )
+    }))
+  }
+
+  eachNote(msg, i){
     return(
-      <Note key={i} index ={i} >{note.note}</Note>
+      <Note key={i}
+            index ={i}
+            onChange={this.update}>
+            {msg.note}
+      </Note>
     )
   }
 
@@ -26,7 +39,7 @@ class Board extends Component {
     return (
       <div className="board">
         <header className="App-header">
-          {this.state.notes.map((note) => this.eachNote(note))}
+          {this.state.notes.map(this.eachNote)}
         </header>
       </div>
     );

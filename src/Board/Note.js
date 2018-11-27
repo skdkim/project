@@ -31,16 +31,18 @@ class Note extends Component {
     alert('removing');
   }
 
-  save(){
+  save(e){
+    e.preventDefault();
+    this.props.onChange(this.newMsg.value, this.props.index)
     this.setState({editing: false, content: this.newMsg.value});
   }
 
   renderForm(){
     return (
       <div className="note">
-        <form>
+        <form onSubmit={this.save}>
           <textarea type="text" ref={content => this.newMsg = content} />
-          <button id="save" onClick={this.save}><FaSave/></button>
+          <button id="save"><FaSave/></button>
         </form>
       </div>
     );
