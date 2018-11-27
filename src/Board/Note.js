@@ -49,7 +49,7 @@ class Note extends Component {
   renderDisplay(){
     return (
       <div className="note">
-        <p>{this.state.content}</p>
+        <p>{this.props.children}</p>
         <span>
           <button id="edit" onClick={this.edit}><FaPencilAlt /> </button>
           <button id="remove" onClick={this.remove}><FaTrash /></button>
