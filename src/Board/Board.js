@@ -35,17 +35,18 @@ class Board extends Component {
 
   nextId(){
     this.uniqueId = this.uniqueId || 0;
-    return this.uniqueId++;
+    return ++this.uniqueId;
   }
 
   add(text){
-    alert('adding new note' + text)
+    // alert('adding new note' + text)
+    let id = this.nextId()
     this.setState(prevState => ({
       notes: [
         ...prevState.notes,
         {
-          id: this.nextId(),
-          note: text
+          id: id,
+          note: id
         }
       ]
     }))
@@ -53,8 +54,8 @@ class Board extends Component {
 
   eachNote(msg, i){
     return(
-      <Note key={i}
-            index ={i}
+      <Note key={msg.id}
+            index ={msg.id}
             onChange={this.update}
             onRemove={this.remove}>
             {msg.note}

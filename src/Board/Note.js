@@ -28,6 +28,7 @@ class Note extends Component {
   }
 
   remove(){
+    alert("removing" + this.props.index)
     this.props.onRemove(this.props.index)
   }
 
