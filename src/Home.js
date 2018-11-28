@@ -31,6 +31,9 @@ class Home extends Component {
             <Link class="link" to={'/project/npsapi'}>NPS API DEMO</Link>
           </div>
           <div class="project">
+            <Link class="link" to={'/project/board'}>Bulletin Board</Link>
+          </div>
+          <div class="project">
             <a href="http://www.hikergram.com" target="_blank">HikerGram</a>
           </div>
         </div>
