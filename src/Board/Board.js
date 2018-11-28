@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './board.css';
 import Note from './Note';
+import { FaPlus } from 'react-icons/fa';
+
 
 class Board extends Component {
   constructor(props){
     super(props);
     this.state = {
       notes: [
-        {id: 0, note: "gym"},
-        {id: 1, note: "visit bank"},
-        {id: 2, note: "study React"}
       ]
     }
     this.eachNote = this.eachNote.bind(this);
     this.update = this.update.bind(this);
     this.remove = this.remove.bind(this);
+    this.add = this.add.bind(this);
+    this.nextId = this.nextId.bind(this);
   }
 
   update(newText, i){
@@ -27,9 +28,26 @@ class Board extends Component {
   }
 
   remove(id){
-    alert('removing item ' + id);
     this.setState(prevState => ({
       notes: prevState.notes.filter(note => note.id !== id)
+    }))
+  }
+
+  nextId(){
+    this.uniqueId = this.uniqueId || 0;
+    return this.uniqueId++;
+  }
+
+  add(text){
+    alert('adding new note' + text)
+    this.setState(prevState => ({
+      notes: [
+        ...prevState.notes,
+        {
+          id: this.nextId(),
+          note: text
+        }
+      ]
     }))
   }
 
@@ -47,9 +65,8 @@ class Board extends Component {
   render() {
     return (
       <div className="board">
-        <header className="App-header">
           {this.state.notes.map(this.eachNote)}
-        </header>
+          <button id="add" onClick={this.add.bind(null, "new note")}><FaPlus /></button>
       </div>
     );
   }
