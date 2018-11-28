@@ -60,7 +60,7 @@ class App extends Component {
           </div>
 
           <Route path="/project/npsapi" component={NPSApi}/>
-          <Route path="/project/board" component={Board}/>
+          <Route path="/project/board" render={(props) => <Board {...props} count={50}/>}/>
           <Route path="/project/home" component={Home}/>
           <Route exact path="/project" component={Home}/>
         </div>
