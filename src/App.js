@@ -15,14 +15,13 @@ class App extends Component {
                   menuDisp: "none",
                   topBarStyle: {},
                   midBarStyle: {},
-                  botBarStyle: {}
+                  botBarStyle: {},
+                  overMenuButton: false
                 };
-    this.mouseLeave = this.mouseLeave.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  toggleMenu(e){
-    e.preventDefault();
+  toggleMenu(){
     if(this.state.menuDisp === "none"){
       this.setState({menuDisp: "flex",
                     topBarStyle: {transform: "rotate(-225deg)", top: ".5em"},
@@ -36,27 +35,25 @@ class App extends Component {
     }
   }
 
-  mouseLeave(e){
-    this.toggleMenu(e)
-  }
-
   render() {
     return (
       <Router>
         <div>
-          <div class="menu" style={this.state.menuStyle} onClick={this.toggleMenu}>
+          <div class="menu" style={this.state.menuStyle} onClick={this.toggleMenu}
+                                                         onMouseEnter={this.menuMouseEnter}
+                                                         onMouseLeave={this.menuMouseLeave}>
             <div id="topBar" style={this.state.topBarStyle}></div>
             <div id="middleBar" style={this.state.midBarStyle}></div>
             <div id="bottomBar" style={this.state.botBarStyle}></div>
           </div>
 
-          <div class="sidebar" onMouseLeave={this.mouseLeave} style={{display: this.state.menuDisp}}>
+          <div class="sidebar" style={{display: this.state.menuDisp}}>
             <div class="placeholder"></div>
-            <Link class="link" to={'/project'}>Home</Link>
+            <Link class="link" onClick={this.toggleMenu} to={'/project'}>Home</Link>
             <br/>
-            <Link class="link" to={'/project/npsapi'}>NPS API</Link>
+            <Link class="link" onClick={this.toggleMenu} to={'/project/npsapi'}>NPS API</Link>
             <br/>
-            <Link class="link" to={'/project/board'}>Board</Link>
+            <Link class="link" onClick={this.toggleMenu} to={'/project/board'}>Board</Link>
           </div>
 
           <Route path="/project/npsapi" component={NPSApi}/>

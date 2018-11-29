@@ -33,7 +33,7 @@ div {
   display: flex;
   flex-direction: column;
   padding: 2em;
-  z-index: 999;
+  z-index: 2;
 }
 
 .placeholder {
@@ -50,7 +50,7 @@ div {
   cursor: pointer;
   background: transparent;
   border: 0px;
-  z-index: 2;
+  z-index: 3;
 }
 
 
