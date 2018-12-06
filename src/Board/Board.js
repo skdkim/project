@@ -17,6 +17,7 @@ class Board extends Component {
     this.remove = this.remove.bind(this);
     this.add = this.add.bind(this);
     this.nextId = this.nextId.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
   componentWillMount(){
@@ -71,11 +72,16 @@ class Board extends Component {
     )
   }
 
+  clear(){
+    this.setState({notes: []})
+  }
+
   render() {
     return (
       <div className="board">
           {this.state.notes.map(this.eachNote)}
           <button id="add" onClick={this.add.bind(null, "new note")}><FaPlus /></button>
+          <button id="add" onClick={this.clear}>Clear</button>
       </div>
     );
   }
